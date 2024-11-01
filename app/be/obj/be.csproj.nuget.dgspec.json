@@ -45,6 +45,10 @@
             "HtmlAgilityPack.CssSelectors.NetCore": {
               "target": "Package",
               "version": "[1.2.1, )"
+            },
+            "PdfPig": {
+              "target": "Package",
+              "version": "[0.1.9, )"
             }
           },
           "imports": [

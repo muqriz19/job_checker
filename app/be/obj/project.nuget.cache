@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "lWbDfvkN+aFrMBB5tsz2xv4yBXk//FODcYpcstcLko6Lxdt+HT9aDoUn59W3OEbknNr4X5c+7vNeFG1efczpLg==",
+  "dgSpecHash": "0n/vg6mGk+zP9o0ciIn5ILbEYhl/FySsTkAfN8/5gHOahC5h6CpeFd6TFUNhp5itG++Jx/2TCdprJNVNCvqJQw==",
   "success": true,
   "projectFilePath": "/home/m/Projects/Workspace/Code/job_checker/app/be/be.csproj",
   "expectedPackageFiles": [
     "/home/m/.nuget/packages/htmlagilitypack/1.11.69/htmlagilitypack.1.11.69.nupkg.sha512",
-    "/home/m/.nuget/packages/htmlagilitypack.cssselectors.netcore/1.2.1/htmlagilitypack.cssselectors.netcore.1.2.1.nupkg.sha512"
+    "/home/m/.nuget/packages/htmlagilitypack.cssselectors.netcore/1.2.1/htmlagilitypack.cssselectors.netcore.1.2.1.nupkg.sha512",
+    "/home/m/.nuget/packages/pdfpig/0.1.9/pdfpig.0.1.9.nupkg.sha512"
   ],
   "logs": []
 }

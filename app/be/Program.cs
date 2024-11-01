@@ -1,4 +1,4 @@
-using be.Interface;
+using be.Interfaces;
 using be.Services;
 
 var builder = WebApplication.CreateBuilder(args);

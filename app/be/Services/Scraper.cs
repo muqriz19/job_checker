@@ -1,4 +1,4 @@
-using be.Interface;
+using be.Interfaces;
 using HtmlAgilityPack;
 using HtmlAgilityPack.CssSelectors.NetCore;
 

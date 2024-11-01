@@ -1,7 +1,7 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using be.Models;
-using be.Interface;
+using be.Interfaces;
 
 namespace be.Controllers;
 

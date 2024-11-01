@@ -1,7 +1,6 @@
-using be.Models;
 using HtmlAgilityPack;
 
-namespace be.Interface;
+namespace be.Interfaces;
 
 public interface IScraper
 {
