@@ -1,7 +1,14 @@
+using be.Interface;
+using be.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+// builder.Services.AddTransient<IScraper, Scraper>();
+builder.Services.AddScoped<IScraper, Scraper>();
+
 
 var app = builder.Build();
 

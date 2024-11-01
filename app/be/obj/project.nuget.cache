@@ -1,8 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "0gRWUtjecGexk7JZn5oNVc1SSMVcSlmyMVP7ZIdP6udz9AgEH5vMzGHe/r7Va3ob8DjqJSg8DRYzDJ0TbSr/ZA==",
+  "dgSpecHash": "lWbDfvkN+aFrMBB5tsz2xv4yBXk//FODcYpcstcLko6Lxdt+HT9aDoUn59W3OEbknNr4X5c+7vNeFG1efczpLg==",
   "success": true,
   "projectFilePath": "/home/m/Projects/Workspace/Code/job_checker/app/be/be.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "/home/m/.nuget/packages/htmlagilitypack/1.11.69/htmlagilitypack.1.11.69.nupkg.sha512",
+    "/home/m/.nuget/packages/htmlagilitypack.cssselectors.netcore/1.2.1/htmlagilitypack.cssselectors.netcore.1.2.1.nupkg.sha512"
+  ],
   "logs": []
 }
