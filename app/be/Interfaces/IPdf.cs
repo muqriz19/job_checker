@@ -1,3 +1,7 @@
-namespace be.Interfaces {
-    
+namespace be.Interfaces
+{
+    public interface IPdf
+    {
+        public IList<string> readPdf();
+    }
 }
