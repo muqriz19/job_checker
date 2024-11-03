@@ -6,14 +6,17 @@ namespace be.Services
     public class Pdf : IPdf
     {
 
-        private string getPathOfFileName(string filename)
+        private string getPathOfFileName(string filename, string directoryPath)
         {
-            return Path.GetFullPath(filename);
+
+            Console.WriteLine(Path.Combine(Environment.CurrentDirectory, directoryPath, filename));
+
+            return Path.Combine(Environment.CurrentDirectory, directoryPath, filename);
         }
 
-        public IList<string> readPDF(string filename, Func<PdfDocument, IList<string>> operation)
+        public IList<string> readPDF(string filename, string directoryPath, Func<PdfDocument, IList<string>> operation)
         {
-            string pathOfFile = getPathOfFileName(filename);
+            string pathOfFile = getPathOfFileName(filename, directoryPath);
 
             using (PdfDocument document = PdfDocument.Open(pathOfFile))
             {

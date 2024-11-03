@@ -35,7 +35,7 @@ namespace be.Services
 
         public IList<string> GetListOfGovLinkedCompanies()
         {
-            return _pdf.readPDF("glc-salary-financing_list.pdf", document =>
+            return _pdf.readPDF("glc-salary-financing_list.pdf", "Assets/Documents", document =>
             {
                 bool hasStarted = false;
                 IList<string> texts = [];
@@ -51,7 +51,7 @@ namespace be.Services
                     for (int i = 0; i < words.Count(); i++)
                     {
                         string theText = words[i].Text;
-                        bool isNumeric = Int32.TryParse(theText, out int result);
+                        bool isNumeric = int.TryParse(theText, out int result);
 
 
                         if (isNumeric && !hasStarted)
@@ -79,6 +79,39 @@ namespace be.Services
                 }
                 return texts;
             });
+        }
+
+        public ICollection<TheCompany> GetTheCompanies()
+        {
+            IList<Company> hrAsiaCompanies = GetHRAsiaWinnersCompany().ToList();
+            IList<string> listOfGLCompanies = GetListOfGovLinkedCompanies();
+
+            ICollection<TheCompany> finalLists = [];
+
+            for (int index = 0; index < hrAsiaCompanies.Count; index++)
+            {
+                string hrAsiaCompanyName = hrAsiaCompanies[index].Name.ToLower();
+                bool isFeatured = false;
+
+                for (int subIndex = 0; subIndex < listOfGLCompanies.Count; subIndex++)
+                {
+                    string glcCompanyName = listOfGLCompanies[subIndex].ToLower();
+
+                    if (glcCompanyName.Contains(hrAsiaCompanyName))
+                    {
+                        isFeatured = true;
+                        break;
+                    }
+                }
+
+                finalLists.Add(new TheCompany
+                {
+                    Name = hrAsiaCompanies[index].Name,
+                    IsFeatured = isFeatured
+                });
+            }
+
+            return finalLists;
         }
     }
 }

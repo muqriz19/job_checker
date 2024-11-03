@@ -4,6 +4,6 @@ namespace be.Interfaces
 {
     public interface IPdf
     {
-        public IList<string> readPDF(string filename, Func<PdfDocument, IList<string>> operation);
+        public IList<string> readPDF(string filename, string directoryPath, Func<PdfDocument, IList<string>> operation);
     }
 }

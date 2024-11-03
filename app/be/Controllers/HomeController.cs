@@ -32,7 +32,8 @@ public class HomeController : Controller
 
     public IActionResult JobChecker()
     {
-        return View();
+        ICollection<TheCompany> listOfCompanies = _companies.GetTheCompanies();
+        return View(listOfCompanies);
     }
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
