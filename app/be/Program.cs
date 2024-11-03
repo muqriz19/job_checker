@@ -8,6 +8,8 @@ builder.Services.AddControllersWithViews();
 
 builder.Services.AddScoped<IScraper, Scraper>();
 builder.Services.AddScoped<IPdf, Pdf>();
+builder.Services.AddScoped<ICompanies, Companies>();
+
 
 var app = builder.Build();
 

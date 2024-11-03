@@ -2,26 +2,22 @@ using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using be.Models;
 using be.Interfaces;
-using UglyToad.PdfPig.Content;
 
 namespace be.Controllers;
 
 public class HomeController : Controller
 {
     private readonly ILogger<HomeController> _logger;
-    private readonly IScraper _scraper;
-    private readonly IPdf _pdf;
+    private readonly ICompanies _companies;
 
 
     public HomeController(
         ILogger<HomeController> logger,
-        IScraper scraper,
-        IPdf pdf
+        ICompanies companies
         )
     {
         _logger = logger;
-        _scraper = scraper;
-        _pdf = pdf;
+        _companies = companies;
     }
 
     public IActionResult Index()
@@ -36,17 +32,6 @@ public class HomeController : Controller
 
     public IActionResult JobChecker()
     {
-        ICollection<string> listOfCompanies = _pdf.readPdf();
-
-        string url = "https://hr.asia/awards/malaysia-2023/";
-        string query = "div.custom-winner .feature_box .feature_box_wrapper";
-
-        ICollection<Company> companies = _scraper.GetItems<Company>(url, query, element =>
-        {
-            string name = element.InnerText.Trim();
-            return new Company { Name = name };
-        });
-
         return View();
     }
 
