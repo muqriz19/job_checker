@@ -1,9 +1,24 @@
-@model ICollection<TheCompany>;
+@model JobCheckerViewModel
 
 @{
     ViewData["Title"] = "Job Checker";
 
+    List<int> years = [];
+    int startYear = 2013;
+    int endYear = Model.SelectedYear;
+
+    for (int i = startYear; i <= endYear; i++)
+    {
+        years.Add(i);
+    }
 }
+
+<select class="form-select">
+    @foreach (int year in years)
+    {
+        <!option value="@year" @(year == endYear ? "selected" : "")>@year</!option>
+    }
+</select>
 
 <table class="table">
     <thead>
@@ -13,7 +28,7 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (var child in Model)
+        @foreach (var child in Model.ListOfCompines)
         {
             <tr>
                 <td>@(child.Name)</td>

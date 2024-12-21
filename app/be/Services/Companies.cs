@@ -19,9 +19,9 @@ namespace be.Services
             _pdf = pdf;
         }
 
-        public ICollection<Company> GetHRAsiaWinnersCompany()
+        public ICollection<Company> GetHRAsiaWinnersCompany(int year)
         {
-            string url = "https://hr.asia/awards/malaysia-2023/";
+            string url = "https://hr.asia/awards/malaysia-" + year + "/";
             string query = "div.custom-winner .feature_box .feature_box_wrapper";
 
             ICollection<Company> companies = _scraper.GetItems<Company>(url, query, element =>
@@ -81,9 +81,9 @@ namespace be.Services
             });
         }
 
-        public ICollection<TheCompany> GetTheCompanies()
+        public ICollection<TheCompany> GetTheCompanies(int givenYear)
         {
-            IList<Company> hrAsiaCompanies = GetHRAsiaWinnersCompany().ToList();
+            IList<Company> hrAsiaCompanies = GetHRAsiaWinnersCompany(givenYear).ToList();
             IList<string> listOfGLCompanies = GetListOfGovLinkedCompanies();
 
             ICollection<TheCompany> finalLists = [];
@@ -93,9 +93,14 @@ namespace be.Services
                 string hrAsiaCompanyName = hrAsiaCompanies[index].Name.ToLower();
                 bool isFeatured = false;
 
+                // Console.WriteLine(hrAsiaCompanyName);
+                // Console.WriteLine("-----");
+
                 for (int subIndex = 0; subIndex < listOfGLCompanies.Count; subIndex++)
                 {
                     string glcCompanyName = listOfGLCompanies[subIndex].ToLower();
+
+                    // Console.WriteLine(glcCompanyName);
 
                     if (glcCompanyName.Contains(hrAsiaCompanyName))
                     {
