@@ -20,3 +20,15 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+.icon {
+  font-size: 1.5rem;
+}
+
+.yes {
+  color: green;
+}
+
+.no {
+  color: red;
+}

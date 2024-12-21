@@ -3,9 +3,10 @@
 @{
     ViewData["Title"] = "Job Checker";
 
+    int selectedYear = Model.SelectedYear;
     List<int> years = [];
     int startYear = 2013;
-    int endYear = Model.SelectedYear;
+    int endYear = DateTime.Now.Year;
 
     for (int i = startYear; i <= endYear; i++)
     {
@@ -16,7 +17,7 @@
 <select class="form-select">
     @foreach (int year in years)
     {
-        <!option value="@year" @(year == endYear ? "selected" : "")>@year</!option>
+        <!option value="@year" @(year == selectedYear ? "selected" : "")>@year</!option>
     }
 </select>
 
@@ -32,8 +33,32 @@
         {
             <tr>
                 <td>@(child.Name)</td>
-                <td>@(child.IsFeatured)</td>
+                <td>@if (child.IsFeatured)
+                    {
+                        <i class="bi bi-check-lg icon yes"></i>
+                    }
+                    else
+                    {
+                        <i class="bi bi-x icon no"></i>
+                    }
+                </td>
             </tr>
         }
     </tbody>
 </table>
+
+@section scripts {
+    <script>
+        const htmlSelect = document.querySelector('.form-select');
+
+        console.log(htmlSelect);
+
+        htmlSelect.addEventListener('change', () => {
+            console.log("Selected", htmlSelect.value);
+
+            const selectedValue = htmlSelect.value;
+
+            window.location.href = `/Home/JobChecker?year=` + selectedValue;
+        });
+    </script>
+}

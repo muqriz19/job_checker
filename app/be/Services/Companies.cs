@@ -48,7 +48,7 @@ namespace be.Services
 
                     string finalText = "";
 
-                    for (int i = 0; i < words.Count(); i++)
+                    for (int i = 0; i < words.Count; i++)
                     {
                         string theText = words[i].Text;
                         bool isNumeric = int.TryParse(theText, out int result);
@@ -101,6 +101,10 @@ namespace be.Services
                     string glcCompanyName = listOfGLCompanies[subIndex].ToLower();
 
                     // Console.WriteLine(glcCompanyName);
+
+                    Console.WriteLine("GLC Company=${0}", glcCompanyName);
+                    Console.WriteLine("HR Company=${0}", hrAsiaCompanyName);
+
 
                     if (glcCompanyName.Contains(hrAsiaCompanyName))
                     {

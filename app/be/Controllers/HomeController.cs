@@ -36,7 +36,8 @@ public class HomeController : Controller
         int setYear = int.Parse(year);
         ICollection<TheCompany> listOfCompanies = _companies.GetTheCompanies(setYear);
 
-        JobCheckerViewModel jobCheckerViewModel = new JobCheckerViewModel {
+        JobCheckerViewModel jobCheckerViewModel = new()
+        {
             ListOfCompines = listOfCompanies,
             SelectedYear = setYear
         };
