@@ -51,11 +51,7 @@
     <script>
         const htmlSelect = document.querySelector('.form-select');
 
-        console.log(htmlSelect);
-
         htmlSelect.addEventListener('change', () => {
-            console.log("Selected", htmlSelect.value);
-
             const selectedValue = htmlSelect.value;
 
             window.location.href = `/Home/JobChecker?year=` + selectedValue;

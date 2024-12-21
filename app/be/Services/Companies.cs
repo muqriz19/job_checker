@@ -93,17 +93,12 @@ namespace be.Services
                 string hrAsiaCompanyName = hrAsiaCompanies[index].Name.ToLower();
                 bool isFeatured = false;
 
-                // Console.WriteLine(hrAsiaCompanyName);
-                // Console.WriteLine("-----");
-
                 for (int subIndex = 0; subIndex < listOfGLCompanies.Count; subIndex++)
                 {
                     string glcCompanyName = listOfGLCompanies[subIndex].ToLower();
 
-                    // Console.WriteLine(glcCompanyName);
-
-                    Console.WriteLine("GLC Company=${0}", glcCompanyName);
-                    Console.WriteLine("HR Company=${0}", hrAsiaCompanyName);
+                    // Console.WriteLine("GLC Company=${0}", glcCompanyName);
+                    // Console.WriteLine("HR Company=${0}", hrAsiaCompanyName);
 
 
                     if (glcCompanyName.Contains(hrAsiaCompanyName))

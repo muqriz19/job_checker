@@ -32,7 +32,6 @@ public class HomeController : Controller
 
     public IActionResult JobChecker(string year)
     {
-        Console.WriteLine(year);
         int setYear = int.Parse(year);
         ICollection<TheCompany> listOfCompanies = _companies.GetTheCompanies(setYear);
 
