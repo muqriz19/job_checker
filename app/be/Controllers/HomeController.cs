@@ -30,10 +30,19 @@ public class HomeController : Controller
         return View();
     }
 
-    public IActionResult JobChecker()
+    public IActionResult JobChecker(string year)
     {
-        ICollection<TheCompany> listOfCompanies = _companies.GetTheCompanies();
-        return View(listOfCompanies);
+        int setYear = int.Parse(year);
+        ICollection<TheCompany> listOfCompanies = _companies.GetTheCompanies(setYear);
+
+        JobCheckerViewModel jobCheckerViewModel = new()
+        {
+            ListOfCompines = listOfCompanies,
+            SelectedYear = setYear
+        };
+
+
+        return View(jobCheckerViewModel);
     }
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

@@ -8,9 +8,6 @@ namespace be.Services
 
         private string getPathOfFileName(string filename, string directoryPath)
         {
-
-            Console.WriteLine(Path.Combine(Environment.CurrentDirectory, directoryPath, filename));
-
             return Path.Combine(Environment.CurrentDirectory, directoryPath, filename);
         }
 
